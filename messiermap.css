@@ -1,0 +1,73 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #808080; /* Grey background */
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 20;
+    display: flex;
+    gap: 10px;
+}
+
+.navbar button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.navbar button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Map Container */
+.map-container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: grab;
+    transform: scale(0.1); /* Start small */
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* No info image at the bottom for mobile */
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+    /* No info image for desktop either */
+}
+
+body {
+    overflow-x: hidden;
+}

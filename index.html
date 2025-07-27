@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Constellation Image Buttons (45)</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const input = document.querySelector(".search-bar input");
+    const cards = document.querySelectorAll(".image-button-container");
+
+    input.addEventListener("input", function () {
+      const filter = input.value.toLowerCase();
+
+      cards.forEach(card => {
+        const text = card.querySelector(".image-text").textContent.toLowerCase();
+        card.style.display = text.includes(filter) ? "block" : "none";
+      });
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const input = document.querySelector(".search-bar input");
+    const cards = document.querySelectorAll(".image-button-container");
+    const langToggle = document.getElementById("langToggle");
+
+   const translations = {
+  "Andromeda": "زن برزنجیر",
+  "Antlia": "تلمبه",
+  "Apus": "مرغ بهشتی",
+  "Aquarius": "دَلو",
+  "Aquila": "عقاب",
+  "Ara": "آتشدان",
+  "Aries": "بره",
+  "Auriga": "ارابه‌ران",
+  "Bootes": "گاوران",
+  "Caelum": "اسکنه",
+  "Camelopardalis": "زرافه",
+  "Cancer": "خرچنگ",
+  "Canes Venatici": "تازی‌ها",
+  "Canis Major": "سگ بزرگ",
+  "Canis Minor": "سگ کوچک",
+  "Capricornus": "بزغاله",
+  "Carina": "شاه‌تخته",
+  "Cassiopeia": "ذات‌الکرسی",
+  "Cassiopeia (1)": "ذات‌الکرسی",
+  "Centaurus": "قنطورس",
+  "Cepheus": "قیفاووس",
+  "Cetus": "نهنگ",
+  "Chamaeleon": "آفتاب‌پرست",
+  "Circinus": "دوپرگار",
+  "Columba": "کبوتر",
+  "Coma Berenices": "گیسو",
+  "Corona Australis": "تاج جنوبی",
+  "Corona Borealis": "تاج شمالی",
+  "Corvus": "کلاغ",
+  "Crater": "پیاله",
+  "Crux": "چلیپا",
+  "Cygnus": "ماکیان",
+  "Delphinus": "دلفین",
+  "Dorado": "ماهی زرین",
+  "Draco": "اژدها",
+  "Equuleus": "اسب کوچک",
+  "Eridanus": "جوی",
+  "Fornax": "کوره",
+  "Gemini": "دوپیکر",
+  "Grus": "دُرنا",
+  "Hercules": "زانوزده",
+  "Horologium": "ساعت",
+  "Hydra": "مار باریک",
+  "Hydrus": "آبمار",
+  "Leo": "شیر",
+  "Leo Minor": "شیر کوچک",
+  "Lyra": "شَلیاق",
+  "Pegasus": "اسب بزرگ",
+  "Perseus": "برساووش",
+  "Sagitta": "پیکان",
+  "Scorpius": "کژدم",
+  "Sagittarius": "کمان",
+  "Libra": "ترازو",
+  "Taurus": "گاو",
+  "Pisces": "ماهی",
+  "Phoenix": "سیمرغ",
+  "Vela": "بادبان",
+  "Puppis": "کشتی‌دم",
+  "Vulpecula": "روباهک",
+  "Ursa Major": "خرس بزرگ",
+  "Ursa Minor": "خرس کوچک",
+  "Ophiuchus": "مارافسای",
+  "Lepus": "خرگوش",
+  "Lupus": "گرگ",
+  "Lynx": "سیاه‌گوش",
+  "Microscopium": "میکروسکوپ",
+  "Monoceros": "تک‌شاخ",
+  "Musca": "مگس جنوبی",
+  "Norma": "گونیا",
+  "Octans": "هَشتَک",
+  "Pavo": "طاووس",
+  "Pictor": "سه‌پایه (نقاش)",
+  "Piscis Austrinus": "ماهی جنوبی",
+  "Pyxis": "قطب‌نما",
+  "Reticulum": "تور",
+  "Sculptor": "سنگتراش",
+  "Scutum": "سپر",
+  "Sextans": "سکستان",
+  "Telescopium": "تلسکوپ",
+  "Triangulum": "سه‌سو",
+  "Triangulum Australe": "مثلث جنوبی",
+  "Volans": "ماهی پرنده",
+  "Indus": "هندی"
+};
+
+
+    let isFarsi = false;
+
+    langToggle.addEventListener("click", () => {
+      isFarsi = !isFarsi;
+      langToggle.textContent = isFarsi ? "English" : "فارسی";
+      input.placeholder = isFarsi ? "جستجو..." : "Search...";
+
+      cards.forEach(card => {
+        const textDiv = card.querySelector(".image-text");
+        const enText = Object.keys(translations).find(key => {
+          return textDiv.textContent.includes(key) || translations[key] === textDiv.textContent;
+        });
+
+        if (enText) {
+          textDiv.textContent = isFarsi ? translations[enText] : enText;
+        }
+      });
+    });
+
+    input.addEventListener("input", function () {
+      const filter = input.value.toLowerCase();
+
+      cards.forEach(card => {
+        const text = card.querySelector(".image-text").textContent.toLowerCase();
+        card.style.display = text.includes(filter) ? "block" : "none";
+      });
+    });
+  });
+</script>
+
+</head>
+<body>
+<div class="button-container">
+  <div class="button-row">
+    <button id="backBtn" class="btn">← Back</button>
+    <button id="langToggle" class="btn">فارسی</button>
+    <button id="toggleNightMode" class="btn">Night</button>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search..." />
+    <button type="submit">
+      <img src="MAG.png" alt="Search" />
+    </button>
+  </div>
+</div>
+
+
+</div class="all-constellations">
+
+
+  <!-- Previous 29 images -->
+
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Andromeda_constellation_map.png" alt="Andromeda" />
+    </a>
+    <div class="image-text">Andromeda</div>
+    <div class="divider"></div>
+  </div>
+
+  <!-- ... (Repeat the same structure for the previous 28 images) ... -->
+  <!-- For brevity, I will list them all explicitly below -->
+
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Antlia_constellation_map.png" alt="Antlia" />
+    </a>
+    <div class="image-text">Antlia</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Apus_constellation_map.png" alt="Apus" />
+    </a>
+    <div class="image-text">Apus</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Aquarius_constellation_map.png" alt="Aquarius" />
+    </a>
+    <div class="image-text">Aquarius</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Aquila_constellation_map.png" alt="Aquila" />
+    </a>
+    <div class="image-text">Aquila</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Ara_constellation_map.png" alt="Ara" />
+    </a>
+    <div class="image-text">Ara</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Aries_constellation_map.png" alt="Aries" />
+    </a>
+    <div class="image-text">Aries</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Auriga_constellation_map.png" alt="Auriga" />
+    </a>
+    <div class="image-text">Auriga</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Bootes_constellation_map.png" alt="Bootes" />
+    </a>
+    <div class="image-text">Bootes</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Caelum_constellation_map.png" alt="Caelum" />
+    </a>
+    <div class="image-text">Caelum</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Camelopardalis_constellation_map.png" alt="Camelopardalis" />
+    </a>
+    <div class="image-text">Camelopardalis</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Cancer_constellation_map.png" alt="Cancer" />
+    </a>
+    <div class="image-text">Cancer</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Canes_Venatici_constellation_map.png" alt="Canes Venatici" />
+    </a>
+    <div class="image-text">Canes Venatici</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Canis_major_constellation_map.png" alt="Canis Major" />
+    </a>
+    <div class="image-text">Canis Major</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Canis_minor_constellation_map.png" alt="Canis Minor" />
+    </a>
+    <div class="image-text">Canis Minor</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Capricornus_constellation_map.png" alt="Capricornus" />
+    </a>
+    <div class="image-text">Capricornus</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Carina_constellation_map.png" alt="Carina" />
+    </a>
+    <div class="image-text">Carina</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Cassiopeia_constellation_map(1).png" alt="Cassiopeia 1" />
+    </a>
+    <div class="image-text">Cassiopeia (1)</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Cassiopeia_constellation_map.png" alt="Cassiopeia" />
+    </a>
+    <div class="image-text">Cassiopeia</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Centaurus_constellation_map.png" alt="Centaurus" />
+    </a>
+    <div class="image-text">Centaurus</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Cepheus_constellation_map.png" alt="Cepheus" />
+    </a>
+    <div class="image-text">Cepheus</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Cetus_constellation_map.png" alt="Cetus" />
+    </a>
+    <div class="image-text">Cetus</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Chamaeleon_constellation_map.png" alt="Chamaeleon" />
+    </a>
+    <div class="image-text">Chamaeleon</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Circinus_constellation_map.png" alt="Circinus" />
+    </a>    <div class="image-text">Circinus</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Columba_constellation_map.png" alt="Columba" />
+    </a>
+    <div class="image-text">Columba</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Coma_Berenices_constellation_map.png" alt="Coma Berenices" />
+    </a>
+    <div class="image-text">Coma Berenices</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Corona_Australis_constellation_map.png" alt="Corona Australis" />
+    </a>
+    <div class="image-text">Corona Australis</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Corona_borealis_constellation_map.png" alt="Corona Borealis" />
+    </a>
+    <div class="image-text">Corona Borealis</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Corvus_constellation_map.png" alt="Corvus" />
+    </a>
+    <div class="image-text">Corvus</div>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Newly added 16 images -->
+
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Crater_constellation_map.png" alt="Crater" />
+    </a>
+    <div class="image-text">Crater</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Crux_constellation_map.png" alt="Crux" />
+    </a>
+    <div class="image-text">Crux</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Cygnus_constellation_map.png" alt="Cygnus" />
+    </a>
+    <div class="image-text">Cygnus</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Delphinus_constellation_map.png" alt="Delphinus" />
+    </a>
+    <div class="image-text">Delphinus</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Dorado_constellation_map.png" alt="Dorado" />
+    </a>
+    <div class="image-text">Dorado</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Draco_constellation_map.png" alt="Draco" />
+    </a>
+    <div class="image-text">Draco</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Equuleus_constellation_map.png" alt="Equuleus" />
+    </a>DAY
+    <div class="image-text">Equuleus</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Eridanus_constellation_map.png" alt="Eridanus" />
+    </a>
+    <div class="image-text">Eridanus</div>
+    <div class="divider"></div>
+  </div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Fornax_constellation_map.png" alt="Fornax" />
+    </a>
+    <div class="image-text">Fornax</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Gemini_constellation_map_visualization_1.png" alt="Gemini" />
+     </a>
+    <div class="image-text">Gemini</div>
+    <div class="divider"></div>
+  </div>
+ 
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Grus_constellation_map.png" alt="Grus" />
+     </a>
+    <div class="image-text">Grus</div>
+    <div class="divider"></div>
+  </div>
+
+    <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Hercules_constellation_map.png" alt="Hercules" />
+     </a>
+    <div class="image-text">Hercules</div>
+    <div class="divider"></div>
+  </div>
+
+    <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Horologium_constellation_map.png" alt="Horologium" />
+     </a>
+    <div class="image-text">Horologium</div>
+    <div class="divider"></div>
+  </div>
+
+    <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Hydra_constellation_map.png" alt="Hydra" />
+     </a>
+    <div class="image-text">Hydra</div>
+    <div class="divider"></div>
+  </div>
+
+    <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Hydrus_constellation_map.png" alt="Hydrus" />
+     </a>
+    <div class="image-text">Hydrus</div>
+    <div class="divider"></div>
+  </div> 
+  <script>
+  // Enable fullscreen when any image inside .image-button is clicked
+  document.querySelectorAll('.image-button img').forEach(img => {
+    img.addEventListener('click', (e) => {
+      e.preventDefault(); // prevent link navigation
+      if (img.requestFullscreen) {
+        img.requestFullscreen();
+      } else if (img.webkitRequestFullscreen) {
+        img.webkitRequestFullscreen(); // Safari
+      } else if (img.msRequestFullscreen) {
+        img.msRequestFullscreen(); // IE/Edge
+      }
+    });
+  });
+</script>
+<script>
+  document.querySelectorAll('.image-button img').forEach(img => {
+    let hasEnteredFullscreen = false;
+
+    img.addEventListener('click', async (e) => {
+      e.preventDefault();
+
+      if (!document.fullscreenElement) {
+        // First click → enter fullscreen
+        hasEnteredFullscreen = true;
+        if (img.requestFullscreen) {
+          await img.requestFullscreen();
+        } else if (img.webkitRequestFullscreen) {
+          await img.webkitRequestFullscreen();
+        } else if (img.msRequestFullscreen) {
+          await img.msRequestFullscreen();
+        }
+      } else if (hasEnteredFullscreen) {
+        // Second click while fullscreen → go to skymap.html
+        window.location.href = "skymap.html";
+      }
+    });
+  });
+</script>

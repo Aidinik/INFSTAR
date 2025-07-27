@@ -1,0 +1,152 @@
+/* پس‌زمینه کلی صفحه */
+body {
+  background-image: url('assets/images/EARTHBG.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  font-family: Arial, sans-serif;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+}
+
+/* نوار دکمه بالا */
+.button-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  font-size: 17px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background-color: #3399ff;
+  color: white;
+}
+
+/* سرچ بار زیبا */
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 360px;
+  margin-top: 20px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
+.search-bar button {
+  background-color: #3399ff;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.search-bar button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* کانتینر دکمه تصویری */
+.image-button-container {
+  margin: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  max-width: 400px;
+  width: 100%;
+}
+
+.image-button-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-button {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  display: block;
+}
+
+.image-button img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: block;
+  margin: 0 auto;
+}
+
+/* اسم زیر عکس */
+.image-text {
+  margin-top: 16px;
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  user-select: none;
+}
+
+/* خط کوچک زیر متن */
+.divider {
+  width: 60px;
+  height: 2px;
+  background-color: #555;
+  margin: 10px auto 0;
+  transition: background-color 0.3s ease;
+}
+
+/* واکنش‌گرا برای ویندوز و موبایل */
+@media (min-width: 768px) {
+  .gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .image-button-container {
+    flex: 1 1 calc(50% - 80px);
+  }
+}
+
+@media (max-width: 767px) {
+  .gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-button-container {
+    width: 100%;
+  }
+}
