@@ -1,258 +1,538 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <title>Constellation Image Buttons (45)</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const input = document.querySelector(".search-bar input");
+    const cards = document.querySelectorAll(".image-button-container");
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    input.addEventListener("input", function () {
+      const filter = input.value.toLowerCase();
 
-  <title>استودیو تمرینی - قالب رایگان CSS</title>
-  <!--
+      cards.forEach(card => {
+        const text = card.querySelector(".image-text").textContent.toLowerCase();
+        card.style.display = text.includes(filter) ? "block" : "none";
+      });
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const input = document.querySelector(".search-bar input");
+    const cards = document.querySelectorAll(".image-button-container");
+    const langToggle = document.getElementById("langToggle");
 
-  TemplateMo 548 Training Studio
+   const translations = {
+  "Andromeda": "زن برزنجیر",
+  "Antlia": "تلمبه",
+  "Apus": "مرغ بهشتی",
+  "Aquarius": "دَلو",
+  "Aquila": "عقاب",
+  "Ara": "آتشدان",
+  "Aries": "بره",
+  "Auriga": "ارابه‌ران",
+  "Bootes": "گاوران",
+  "Caelum": "اسکنه",
+  "Camelopardalis": "زرافه",
+  "Cancer": "خرچنگ",
+  "Canes Venatici": "تازی‌ها",
+  "Canis Major": "سگ بزرگ",
+  "Canis Minor": "سگ کوچک",
+  "Capricornus": "بزغاله",
+  "Carina": "شاه‌تخته",
+  "Cassiopeia": "ذات‌الکرسی",
+  "Cassiopeia (1)": "ذات‌الکرسی",
+  "Centaurus": "قنطورس",
+  "Cepheus": "قیفاووس",
+  "Cetus": "نهنگ",
+  "Chamaeleon": "آفتاب‌پرست",
+  "Circinus": "دوپرگار",
+  "Columba": "کبوتر",
+  "Coma Berenices": "گیسو",
+  "Corona Australis": "تاج جنوبی",
+  "Corona Borealis": "تاج شمالی",
+  "Corvus": "کلاغ",
+  "Crater": "پیاله",
+  "Crux": "چلیپا",
+  "Cygnus": "ماکیان",
+  "Delphinus": "دلفین",
+  "Dorado": "ماهی زرین",
+  "Draco": "اژدها",
+  "Equuleus": "اسب کوچک",
+  "Eridanus": "جوی",
+  "Fornax": "کوره",
+  "Gemini": "دوپیکر",
+  "Grus": "دُرنا",
+  "Hercules": "زانوزده",
+  "Horologium": "ساعت",
+  "Hydra": "مار باریک",
+  "Hydrus": "آبمار",
+  "Leo": "شیر",
+  "Leo Minor": "شیر کوچک",
+  "Lyra": "شَلیاق",
+  "Pegasus": "اسب بزرگ",
+  "Perseus": "برساووش",
+  "Sagitta": "پیکان",
+  "Scorpius": "کژدم",
+  "Sagittarius": "کمان",
+  "Libra": "ترازو",
+  "Taurus": "گاو",
+  "Pisces": "ماهی",
+  "Phoenix": "سیمرغ",
+  "Vela": "بادبان",
+  "Puppis": "کشتی‌دم",
+  "Vulpecula": "روباهک",
+  "Ursa Major": "خرس بزرگ",
+  "Ursa Minor": "خرس کوچک",
+  "Ophiuchus": "مارافسای",
+  "Lepus": "خرگوش",
+  "Lupus": "گرگ",
+  "Lynx": "سیاه‌گوش",
+  "Microscopium": "میکروسکوپ",
+  "Monoceros": "تک‌شاخ",
+  "Musca": "مگس جنوبی",
+  "Norma": "گونیا",
+  "Octans": "هَشتَک",
+  "Pavo": "طاووس",
+  "Pictor": "سه‌پایه (نقاش)",
+  "Piscis Austrinus": "ماهی جنوبی",
+  "Pyxis": "قطب‌نما",
+  "Reticulum": "تور",
+  "Sculptor": "سنگتراش",
+  "Scutum": "سپر",
+  "Sextans": "سکستان",
+  "Telescopium": "تلسکوپ",
+  "Triangulum": "سه‌سو",
+  "Triangulum Australe": "مثلث جنوبی",
+  "Volans": "ماهی پرنده",
+  "Indus": "هندی"
+};
 
-  https://templatemo.com/tm-548-training-studio
 
-  -->
-  <!-- Additional CSS Files -->
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    let isFarsi = false;
 
-  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    langToggle.addEventListener("click", () => {
+      isFarsi = !isFarsi;
+      langToggle.textContent = isFarsi ? "English" : "فارسی";
+      input.placeholder = isFarsi ? "جستجو..." : "Search...";
 
-  <link rel="stylesheet" href="assets/css/templatemo-training-studio.css">
+      cards.forEach(card => {
+        const textDiv = card.querySelector(".image-text");
+        const enText = Object.keys(translations).find(key => {
+          return textDiv.textContent.includes(key) || translations[key] === textDiv.textContent;
+        });
 
-  <style>
-    /* وسط چین کردن متن بخش ما چه کاری انجام می‌دهیم */
-    .section-heading {
-      text-align: center !important;
-      direction: rtl;
-    }
+        if (enText) {
+          textDiv.textContent = isFarsi ? translations[enText] : enText;
+        }
+      });
+    });
 
-    .section-heading p {
-      margin: 0 auto;
-      max-width: 600px;
-      text-align: center !important;
-    }
+    input.addEventListener("input", function () {
+      const filter = input.value.toLowerCase();
 
-    /* تغییر لوگو به انگلیسی */
-    .logo {
-      font-weight: 700;
-      font-size: 24px;
-      color: #fff;
-      text-decoration: none;
-    }
-  </style>
+      cards.forEach(card => {
+        const text = card.querySelector(".image-text").textContent.toLowerCase();
+        card.style.display = text.includes(filter) ? "block" : "none";
+      });
+    });
+  });
+</script>
 
 </head>
-
 <body>
-
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
+<div class="button-container">
+  <div class="button-row">
+   <ul>
+            <li><a href="index.html">Home</a></li>
+           
+        </ul>
+    <button id="langToggle" class="btn">فارسی</button>
+    <button id="toggleNightMode" class="btn">Night</button>
   </div>
-  <!-- ***** Preloader End ***** -->
-
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <a href="info.html" class="logo">Info<em>Star</em></a>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">خانه</a></li>
-              <li class="scroll-to-section"><a href="skymap.html">نقشه آسمان</a></li>
-              <li class="scroll-to-section"><a href="credits.html">درباره ما</a></li>
-              <li class="scroll-to-section"><a href="contact.html">تماس با ما</a></li>
-              <!-- دکمه EN حذف شد -->
-            </ul>
-            <a class='menu-trigger'>
-              <span>منو</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-
-  <!-- ***** Main Banner Area Start ***** -->
-  <div class="main-banner" id="top">
-    <video autoplay muted loop id="bg-video">
-      <source src="assets/images/gym-video.mp4" type="video/mp4" />
-    </video>
-
-    <div class="video-overlay header-text">
-      <div class="caption">
-        <h6>به اینفواستار خوش آمدید</h6>
-        <h2>بیایید <em>شروع کنیم</em></h2>
-<div class="buttons-container">
-  <a href="index.html" class="btn custom-btn">صورت‌های فلکی</a>
-  <a href="#" class="btn custom-btn">بازی‌های فضایی</a>
-  <a href="#" class="btn custom-btn">اجرام مسیه</a>
-  <a href="skymap.html" class="btn custom-btn">نقشه‌های آسمان</a>
-  <a href="D:\AIDIN\WORK\WEBSITE FOR NJOOM\new njoom\GALLERY\GALLERY\index.html" class="btn custom-btn">عکس‌های فضایی</a>
-  <a href="TABLE1.html" class="btn custom-btn">ستاره های نزدیک</a>
-  <a href="TABLE2.html" class="btn custom-btn">ستاره های درخشان</a>
+  <div class="search-bar">
+    <input type="text" placeholder="Search..." />
+    <button type="submit">
+      <img src="MAG.png" alt="Search" />
+    </button>
+  </div>
 </div>
 
 
-      </div>
-    </div>
+</div class="all-constellations">
+
+
+  <!-- Previous 29 images -->
+
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Andromeda_constellation_map.png" alt="Andromeda" />
+    </a>
+    <div class="image-text">Andromeda</div>
+    <div class="divider"></div>
   </div>
-  <!-- ***** Main Banner Area End ***** -->
 
-  <!-- ***** Features Item Start ***** -->
-  <section class="section" id="features">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading">
-           
+  <!-- ... (Repeat the same structure for the previous 28 images) ... -->
+  <!-- For brevity, I will list them all explicitly below -->
 
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <ul class="features-items">
-            <li class="feature-item">
-              <div class="left-icon">
-                <img src="assets/images/features-first-icon.png" alt="First One">
-              </div>
-              <div class="right-content">
-                <h4>بازی‌های سرگرم‌کننده فضایی</h4>
-                <p>بازی‌های تعاملی برای کشف کیهان به روشی سرگرم‌کننده.</p>
-                <a href="#" class="text-button">بیشتر کشف کنید</a>
-              </div>
-            </li>
-            <li class="feature-item">
-              <div class="left-icon">
-                <img src="assets/images/features-first-icon.png" alt="second one">
-              </div>
-              <div class="right-content">
-                <h4>صورت‌های فلکی</h4>
-                <p>درباره صورت‌های فلکی مختلف و معنای آن‌ها بیاموزید.</p>
-                <a href="#" class="text-button">بیشتر کشف کنید</a>
-              </div>
-            </li>
-            <li class="feature-item">
-              <div class="left-icon">
-                <img src="assets/images/features-first-icon.png" alt="third gym training">
-              </div>
-              <div class="right-content">
-                <h4>حقایق ستاره‌ها</h4>
-                <p>ححقایق ساده درباره ستارگان، سیاه‌چاله‌ها، کهکشان‌ها</p>
-                <a href="#" class="text-button">بیشتر کشف کنید</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="col-lg-6">
-          <ul class="features-items">
-            <li class="feature-item">
-              <div class="left-icon">
-                <img src="assets/images/features-first-icon.png" alt="fourth muscle">
-              </div>
-              <div class="right-content">
-                <h4>نقشه‌های آسمان</h4>
-                <p>از نقشه‌های آسمان ما برای پیدا کردن ستارگان و صورت‌های فلکی در آسمان واقعی استفاده کنید.</p>
-                <a href="#" class="text-button">بیشتر کشف کنید</a>
-              </div>
-            </li>
-            <li class="feature-item">
-              <div class="left-icon">
-                <img src="assets/images/features-first-icon.png" alt="training fifth">
-              </div>
-              <div class="right-content">
-                <h4>عکس‌های فضایی</h4>
-                <p>تصاویر شگفت‌انگیز از سیارات، سحابی‌ها و فضای عمیق را ببینید.</p>
-                <a href="#" class="text-button">بیشتر کشف کنید</a>
-              </div>
-            </li>
-            <li class="feature-item">
-              <div class="left-icon">
-                <img src="assets/images/features-first-icon.png" alt="gym training">
-              </div>
-              <div class="right-content">
-                <h4>یادگیری آسان</h4>
-                <p>همه چیز ساده نوشته شده است — هر کسی می‌تواند با ما فضا را بفهمد!</p>
-                <a href="#" class="text-button">بیشتر کشف کنید</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ***** Features Item End ***** -->
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Antlia_constellation_map.png" alt="Antlia" />
+    </a>
+    <div class="image-text">Antlia</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Apus_constellation_map.png" alt="Apus" />
+    </a>
+    <div class="image-text">Apus</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Aquarius_constellation_map.png" alt="Aquarius" />
+    </a>
+    <div class="image-text">Aquarius</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Aquila_constellation_map.png" alt="Aquila" />
+    </a>
+    <div class="image-text">Aquila</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Ara_constellation_map.png" alt="Ara" />
+    </a>
+    <div class="image-text">Ara</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Aries_constellation_map.png" alt="Aries" />
+    </a>
+    <div class="image-text">Aries</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Auriga_constellation_map.png" alt="Auriga" />
+    </a>
+    <div class="image-text">Auriga</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Bootes_constellation_map.png" alt="Bootes" />
+    </a>
+    <div class="image-text">Bootes</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Caelum_constellation_map.png" alt="Caelum" />
+    </a>
+    <div class="image-text">Caelum</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Camelopardalis_constellation_map.png" alt="Camelopardalis" />
+    </a>
+    <div class="image-text">Camelopardalis</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Cancer_constellation_map.png" alt="Cancer" />
+    </a>
+    <div class="image-text">Cancer</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Canes_Venatici_constellation_map.png" alt="Canes Venatici" />
+    </a>
+    <div class="image-text">Canes Venatici</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Canis_major_constellation_map.png" alt="Canis Major" />
+    </a>
+    <div class="image-text">Canis Major</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Canis_minor_constellation_map.png" alt="Canis Minor" />
+    </a>
+    <div class="image-text">Canis Minor</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Capricornus_constellation_map.png" alt="Capricornus" />
+    </a>
+    <div class="image-text">Capricornus</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Carina_constellation_map.png" alt="Carina" />
+    </a>
+    <div class="image-text">Carina</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Cassiopeia_constellation_map(1).png" alt="Cassiopeia 1" />
+    </a>
+    <div class="image-text">Cassiopeia (1)</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Cassiopeia_constellation_map.png" alt="Cassiopeia" />
+    </a>
+    <div class="image-text">Cassiopeia</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Centaurus_constellation_map.png" alt="Centaurus" />
+    </a>
+    <div class="image-text">Centaurus</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Cepheus_constellation_map.png" alt="Cepheus" />
+    </a>
+    <div class="image-text">Cepheus</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Cetus_constellation_map.png" alt="Cetus" />
+    </a>
+    <div class="image-text">Cetus</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Chamaeleon_constellation_map.png" alt="Chamaeleon" />
+    </a>
+    <div class="image-text">Chamaeleon</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Circinus_constellation_map.png" alt="Circinus" />
+    </a>    <div class="image-text">Circinus</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Columba_constellation_map.png" alt="Columba" />
+    </a>
+    <div class="image-text">Columba</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Coma_Berenices_constellation_map.png" alt="Coma Berenices" />
+    </a>
+    <div class="image-text">Coma Berenices</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Corona_Australis_constellation_map.png" alt="Corona Australis" />
+    </a>
+    <div class="image-text">Corona Australis</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Corona_borealis_constellation_map.png" alt="Corona Borealis" />
+    </a>
+    <div class="image-text">Corona Borealis</div>
+    <div class="divider"></div>
+  </div>
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Corvus_constellation_map.png" alt="Corvus" />
+    </a>
+    <div class="image-text">Corvus</div>
+    <div class="divider"></div>
+  </div>
 
-  <!-- ***** Call to Action Start ***** -->
-  <section class="section" id="call-to-action">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 offset-lg-1">
-          <div class="cta-content">
-            <h2>امروز سفر فضایی خود را شروع کنید!</h2>
-            <p>گام به گام به کاوش کیهان بپردازید. چه فقط کنجکاو باشید و چه فضانورد آینده، اینفواستار مکان مناسبی برای شروع است.</p>
-            <div class="main-button scroll-to-section">
-              <a href="#our-classes">عضو شوید</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ***** Call to Action End ***** -->
+  <!-- Newly added 16 images -->
 
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Crater_constellation_map.png" alt="Crater" />
+    </a>
+    <div class="image-text">Crater</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Crux_constellation_map.png" alt="Crux" />
+    </a>
+    <div class="image-text">Crux</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Cygnus_constellation_map.png" alt="Cygnus" />
+    </a>
+    <div class="image-text">Cygnus</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Delphinus_constellation_map.png" alt="Delphinus" />
+    </a>
+    <div class="image-text">Delphinus</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Dorado_constellation_map.png" alt="Dorado" />
+    </a>
+    <div class="image-text">Dorado</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Draco_constellation_map.png" alt="Draco" />
+    </a>
+    <div class="image-text">Draco</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Equuleus_constellation_map.png" alt="Equuleus" />
+    </a>DAY
+    <div class="image-text">Equuleus</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Eridanus_constellation_map.png" alt="Eridanus" />
+    </a>
+    <div class="image-text">Eridanus</div>
+    <div class="divider"></div>
+  </div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Fornax_constellation_map.png" alt="Fornax" />
+    </a>
+    <div class="image-text">Fornax</div>
+    <div class="divider"></div>
+  </div>
+  
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Gemini_constellation_map_visualization_1.png" alt="Gemini" />
+     </a>
+    <div class="image-text">Gemini</div>
+    <div class="divider"></div>
+  </div>
+ 
+  <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Grus_constellation_map.png" alt="Grus" />
+     </a>
+    <div class="image-text">Grus</div>
+    <div class="divider"></div>
+  </div>
 
-  <!-- ***** Footer Start ***** -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <p>  کپی‌رایت &copy; 2025 آیدین نیک آمیز - طراحی شده توسط آیدین نیک آمیز  </p>
+    <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Hercules_constellation_map.png" alt="Hercules" />
+     </a>
+    <div class="image-text">Hercules</div>
+    <div class="divider"></div>
+  </div>
 
+    <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Horologium_constellation_map.png" alt="Horologium" />
+     </a>
+    <div class="image-text">Horologium</div>
+    <div class="divider"></div>
+  </div>
 
-          <!-- You shall support us a little via PayPal to info@templatemo.com -->
+    <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Hydra_constellation_map.png" alt="Hydra" />
+     </a>
+    <div class="image-text">Hydra</div>
+    <div class="divider"></div>
+  </div>
 
-        </div>
-      </div>
-    </div>
-  </footer>
+    <div class="image-button-container">
+    <a href="anotherpage.html" class="image-button">
+      <img src="assets/DAY/Hydrus_constellation_map.png" alt="Hydrus" />
+     </a>
+    <div class="image-text">Hydrus</div>
+    <div class="divider"></div>
+  </div> 
+  <script>
+  // Enable fullscreen when any image inside .image-button is clicked
+  document.querySelectorAll('.image-button img').forEach(img => {
+    img.addEventListener('click', (e) => {
+      e.preventDefault(); // prevent link navigation
+      if (img.requestFullscreen) {
+        img.requestFullscreen();
+      } else if (img.webkitRequestFullscreen) {
+        img.webkitRequestFullscreen(); // Safari
+      } else if (img.msRequestFullscreen) {
+        img.msRequestFullscreen(); // IE/Edge
+      }
+    });
+  });
+</script>
+<script>
+  document.querySelectorAll('.image-button img').forEach(img => {
+    let hasEnteredFullscreen = false;
 
-  <!-- jQuery -->
-  <script src="assets/js/jquery-2.1.0.min.js"></script>
+    img.addEventListener('click', async (e) => {
+      e.preventDefault();
 
-  <!-- Bootstrap -->
-  <script src="assets/js/popper.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-
-  <!-- Plugins -->
-  <script src="assets/js/scrollreveal.min.js"></script>
-  <script src="assets/js/waypoints.min.js"></script>
-  <script src="assets/js/jquery.counterup.min.js"></script>
-  <script src="assets/js/imgfix.min.js"></script>
-  <script src="assets/js/mixitup.js"></script>
-  <script src="assets/js/accordions.js"></script>
-
-  <!-- Global Init -->
-  <script src="assets/js/custom.js"></script>
-
-</body>
-
-</html>
+      if (!document.fullscreenElement) {
+        // First click → enter fullscreen
+        hasEnteredFullscreen = true;
+        if (img.requestFullscreen) {
+          await img.requestFullscreen();
+        } else if (img.webkitRequestFullscreen) {
+          await img.webkitRequestFullscreen();
+        } else if (img.msRequestFullscreen) {
+          await img.msRequestFullscreen();
+        }
+      } else if (hasEnteredFullscreen) {
+        // Second click while fullscreen → go to skymap.html
+        window.location.href = "skymap.html";
+      }
+    });
+  });
+</script>
