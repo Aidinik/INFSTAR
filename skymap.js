@@ -15,61 +15,42 @@ window.addEventListener("load", () => {
     }, 100);
 });
 
-// Mouse dragging
-map.addEventListener("mousedown", (e) => {
+// Dragging functionality
+map.addEventListener("mousedown", startDrag);
+map.addEventListener("mousemove", drag);
+map.addEventListener("mouseup", stopDrag);
+map.addEventListener("mouseleave", stopDrag);
+map.addEventListener("wheel", zoomMap);
+
+function startDrag(e) {
     isDragging = true;
     startX = e.clientX - currentX;
     startY = e.clientY - currentY;
     map.style.cursor = "grabbing";
-});
+}
 
-map.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    currentX = e.clientX - startX;
-    currentY = e.clientY - startY;
-    updateTransform();
-});
-
-map.addEventListener("mouseup", stopDrag);
-map.addEventListener("mouseleave", stopDrag);
-
-// Touch dragging
-map.addEventListener("touchstart", (e) => {
-    if (e.touches.length !== 1) return;
-    isDragging = true;
-    startX = e.touches[0].clientX - currentX;
-    startY = e.touches[0].clientY - currentY;
-}, { passive: false });
-
-map.addEventListener("touchmove", (e) => {
-    if (!isDragging || e.touches.length !== 1) return;
-    e.preventDefault();
-    currentX = e.touches[0].clientX - startX;
-    currentY = e.touches[0].clientY - startY;
-    updateTransform();
-}, { passive: false });
-
-map.addEventListener("touchend", stopDrag);
+function drag(e) {
+    if (isDragging) {
+        e.preventDefault();
+        currentX = e.clientX - startX;
+        currentY = e.clientY - startY;
+        map.style.transform = `scale(${scale}) translate(${currentX}px, ${currentY}px)`;
+    }
+}
 
 function stopDrag() {
     isDragging = false;
     map.style.cursor = "grab";
 }
 
-// Zoom with mouse wheel
-map.addEventListener("wheel", (e) => {
+function zoomMap(e) {
     e.preventDefault();
     let zoomAmount = e.deltaY > 0 ? -0.1 : 0.1;
     scale = Math.min(Math.max(1, scale + zoomAmount), 5);
-    updateTransform();
-}, { passive: false });
-
-function updateTransform() {
     map.style.transform = `scale(${scale}) translate(${currentX}px, ${currentY}px)`;
 }
 
-// Toggle night mode image
+// Toggle night mode
 nightModeToggle.addEventListener("click", () => {
     if (isNightMode) {
         map.src = "assets/images/1_17383561738.png";
