@@ -1,78 +1,64 @@
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body, html {
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background-color: #808080; /* Grey background */
+/* Prevent scrolling */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+  background-color: black;
+  font-family: Arial, sans-serif;
 }
 
-/* Navigation Bar */
-.nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #fff;
-    padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-.nav .ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-.navbar button {
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+/* Header Style */
+.top-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(20, 20, 20, 0.85);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  z-index: 1000;
 }
 
-.navbar button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+/* Buttons in Header */
+.top-header button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-/* Map Container */
+.top-header button:hover {
+  background: #ddd;
+}
+
+/* Container for the Map */
 .map-container {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Map Image */
 #map {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    cursor: grab;
-    transform: scale(0.1); /* Start small */
-    opacity: 0;
-    transition: transform 1s ease-out, opacity 1s ease-out;
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    /* No info image at the bottom for mobile */
-}
-
-/* Desktop Styles */
-@media (min-width: 769px) {
-    /* No info image for desktop either */
-}
-
-body {
-    overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.2s ease, opacity 0.3s ease;
+  cursor: grab;
+  opacity: 0;
 }
