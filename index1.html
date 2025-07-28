@@ -27,88 +27,73 @@
     const langToggle = document.getElementById("langToggle");
 
    const translations = {
-  "Andromeda": "زن برزنجیر",
-  "Antlia": "تلمبه",
-  "Apus": "مرغ بهشتی",
-  "Aquarius": "دَلو",
-  "Aquila": "عقاب",
+   "Hydrus": "آبمار",
   "Ara": "آتشدان",
-  "Aries": "بره",
   "Auriga": "ارابه‌ران",
-  "Bootes": "گاوران",
+  "Draco": "اژدها",
+  "Pegasus": "اسب بالدار",
+  "Equuleus": "اسب کوچک",
   "Caelum": "اسکنه",
-  "Camelopardalis": "زرافه",
-  "Cancer": "خرچنگ",
-  "Canes Venatici": "تازی‌ها",
-  "Canis Major": "سگ بزرگ",
-  "Canis Minor": "سگ کوچک",
-  "Capricornus": "بزغاله",
-  "Carina": "شاه‌تخته",
-  "Cassiopeia": "ذات‌الکرسی",
-  "Cassiopeia (1)": "ذات‌الکرسی",
-  "Centaurus": "قنطورس",
-  "Cepheus": "قیفاووس",
-  "Cetus": "نهنگ",
   "Chamaeleon": "آفتاب‌پرست",
-  "Circinus": "دوپرگار",
-  "Columba": "کبوتر",
-  "Coma Berenices": "گیسو",
+  "Vela": "بادبان",
+  "Capricornus": "بزغاله",
+  "Perseus": "برساووش",
+  "Aries": "بره",
+  "Crater": "پیاله",
+  "Sagitta": "پیکان",
   "Corona Australis": "تاج جنوبی",
   "Corona Borealis": "تاج شمالی",
-  "Corvus": "کلاغ",
-  "Crater": "پیاله",
-  "Crux": "چلیپا",
-  "Cygnus": "ماکیان",
-  "Delphinus": "دلفین",
-  "Dorado": "ماهی زرین",
-  "Draco": "اژدها",
-  "Equuleus": "اسب کوچک",
-  "Eridanus": "جوی",
-  "Fornax": "کوره",
-  "Gemini": "دوپیکر",
-  "Grus": "دُرنا",
-  "Hercules": "زانوزده",
-  "Horologium": "ساعت",
-  "Hydra": "مار باریک",
-  "Hydrus": "آبمار",
-  "Leo": "شیر",
-  "Leo Minor": "شیر کوچک",
-  "Lyra": "شَلیاق",
-  "Pegasus": "اسب بزرگ",
-  "Perseus": "برساووش",
-  "Sagitta": "پیکان",
-  "Scorpius": "کژدم",
-  "Sagittarius": "کمان",
+  "Antlia": "تلمبه",
+  "Canes Venatici": "تازی‌ها",
   "Libra": "ترازو",
-  "Taurus": "گاو",
-  "Pisces": "ماهی",
-  "Phoenix": "سیمرغ",
-  "Vela": "بادبان",
-  "Puppis": "کشتی‌دم",
-  "Vulpecula": "روباهک",
+  "Monoceros": "تک‌شاخ",
+  "Telescopium": "تلسکوپ",
+  "Tucana": "توکان",
+  "Eridanus": "جوی",
+  "Crux": "چلیپا",
+  "Cancer": "خرچنگ",
   "Ursa Major": "خرس بزرگ",
   "Ursa Minor": "خرس کوچک",
-  "Ophiuchus": "مارافسای",
   "Lepus": "خرگوش",
-  "Lupus": "گرگ",
-  "Lynx": "سیاه‌گوش",
-  "Microscopium": "میکروسکوپ",
-  "Monoceros": "تک‌شاخ",
-  "Musca": "مگس جنوبی",
-  "Norma": "گونیا",
-  "Octans": "هَشتَک",
-  "Pavo": "طاووس",
-  "Pictor": "سه‌پایه (نقاش)",
-  "Piscis Austrinus": "ماهی جنوبی",
-  "Pyxis": "قطب‌نما",
-  "Reticulum": "تور",
-  "Sculptor": "سنگتراش",
+  "Grus": "درنا",
+  "Delphinus": "دلفین",
+  "Aquarius": "دلو",
+  "Circinus": "دوپرگار",
+  "Gemini": "دوپیکر",
+  "Virgo": "دوشیزه",
+  "Libra": "ترازو",
+  "Vulpecula": "روباهک",
+  "Hercules": "زانوزده",
+  "Camelopardalis": "زرافه",
+  "Andromeda": "زن برزنجیر",
+  "Horologium": "ساعت",
   "Scutum": "سپر",
   "Sextans": "سکستان",
-  "Telescopium": "تلسکوپ",
+  "Canis Major": "سگ بزرگ",
+  "Canis Minor": "سگ کوچک",
+  "Sculptor": "سنگتراش",
+  "Pictor": "سه‌پایه",
   "Triangulum": "سه‌سو",
-  "Triangulum Australe": "مثلث جنوبی",
-  "Volans": "ماهی پرنده",
+  "Lynx": "سیاه‌گوش",
+  "Phoenix": "سیمرغ",
+  "Carina": "شاه‌تخته",
+  "Orion": "شکارچی",
+  "Lyra": "شلیاق",
+  "Leo": "شیر",
+  "Leo Minor": "شیر کوچک",
+  "Pavo": "طاووس",
+  "Aquila": "عقاب",
+  "Pyxis": "قطب‌نما",
+  "Centaurus": "قنطورس",
+  "Cepheus": "قیفاووس",
+  "Columba": "کبوتر",
+  "Scorpius": "کژدم",
+  "Sagittarius": "کمان",
+  "Fornax": "کوره",
+  "Musca": "مگس جنوبی",
+  "Microscopium": "میکروسکوپ",
+  "Cetus": "نهنگ",
+  "Octans": "هشتک",
   "Indus": "هندی"
 };
 
@@ -147,10 +132,11 @@
 <body>
 <div class="button-container">
   <div class="button-row">
-    <a href="index.html" class="btn custom-btn">خانه</a>
-    <button id="langToggle" class="btn">فارسی</button>
+  <a href="index.html" class="btn custom-btn">خانه</a>
+  <button id="langToggle" class="btn">فارسی</button>
+  <button id="modeToggle" class="btn">Night</button>
+</div>
 
-  </div>
   <div class="search-bar">
     <input type="text" placeholder="Search..." />
     <button type="submit">
@@ -900,4 +886,35 @@
       }
     });
   });
+</script>
+</div> <!-- end of body content -->
+<script src="script.js"></script>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const modeToggle = document.getElementById("modeToggle");
+  const images = document.querySelectorAll(".image-button img");
+
+  let isNight = false;
+
+  modeToggle.addEventListener("click", () => {
+    isNight = !isNight;
+    modeToggle.textContent = isNight ? "Day" : "Night";
+
+    images.forEach(img => {
+      // Get the file name from src (e.g., Leo_constellation_map.png)
+      const fileNameMatch = img.src.match(/[^/]+$/);
+      if (!fileNameMatch) return;
+
+      const fileName = fileNameMatch[0]; // like Leo_constellation_map.png
+
+      const newPath = isNight
+  ? "assets/NIGHT/" + fileName
+  : "assets/DAY/" + fileName;
+
+
+      img.src = newPath;
+    });
+  });
+});
 </script>
