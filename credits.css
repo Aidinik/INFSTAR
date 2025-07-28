@@ -62,7 +62,7 @@ nav .active {
     border-radius: 25px; /* Rounded corners like contact page */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
-    text-align: left;
+    text-align: center;  /* Center all text here */
 }
 
 /* Headings and paragraphs inside container */
