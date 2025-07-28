@@ -66,3 +66,11 @@ window.addEventListener("load", () => {
   map.style.opacity = "1";
   map.style.transform = "scale(1)";
 });
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+  let now = (new Date()).getTime();
+  if (now - lastTouchEnd <= 300) {
+    event.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
