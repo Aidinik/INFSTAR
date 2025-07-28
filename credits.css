@@ -8,10 +8,20 @@
 /* Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f4f8;
+    background-image: url('SPACEBG1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     color: #333;
     text-align: center;
     padding-top: 60px;
+
+    /* Flex center container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* Navigation Bar */
@@ -19,9 +29,10 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: white;
+    background: #003366; /* dark blue */
     padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 nav ul {
@@ -33,25 +44,28 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: black;
+    color: white;          /* white text */
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav a:hover,
 nav .active {
-    color: #007bff;
+    color: #66b3ff;        /* lighter blue on hover/active */
 }
 
 /* Credits Container */
 .credits-container {
     max-width: 600px;
-    margin: 40px auto;
     padding: 20px;
-    background: white;
+    background: rgba(255, 255, 255, 0.85); /* semi-transparent white */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    margin: 0; /* no margin since flex centers */
 }
 
+/* Headings and paragraphs */
 .credits-container h1 {
     font-size: 28px;
     margin-bottom: 10px;

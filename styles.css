@@ -1,4 +1,9 @@
-/* پس‌زمینه کلی صفحه */
+/* Box sizing for all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Body and background */
 body {
   background-image: url('assets/images/EARTHBG.jpg');
   background-position: center;
@@ -14,7 +19,7 @@ body {
   color: #333;
 }
 
-/* نوار دکمه بالا */
+/* Top button bar */
 .button-bar {
   display: flex;
   justify-content: center;
@@ -40,7 +45,7 @@ body {
   color: white;
 }
 
-/* سرچ بار زیبا */
+/* Search bar */
 .search-bar {
   display: flex;
   align-items: center;
@@ -72,15 +77,15 @@ body {
   height: 20px;
 }
 
-/* کانتینر دکمه تصویری */
+/* Image button container */
 .image-button-container {
-  margin: 30px;
+  margin: 30px auto;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   display: inline-block;
-  max-width: 400px;
   width: 100%;
+  max-width: 400px; /* default max width on desktop */
 }
 
 .image-button-container:hover {
@@ -98,7 +103,7 @@ body {
 
 .image-button img {
   width: 100%;
-  max-width: 400px;
+  max-width: 400px; /* default max width on desktop */
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -106,7 +111,7 @@ body {
   margin: 0 auto;
 }
 
-/* اسم زیر عکس */
+/* Image text under image */
 .image-text {
   margin-top: 16px;
   font-size: 24px;
@@ -114,18 +119,19 @@ body {
   font-weight: bold;
   text-align: center;
   user-select: none;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* better contrast on light/dark */
 }
 
-/* خط کوچک زیر متن */
+/* Small line under text */
 .divider {
   width: 60px;
   height: 2px;
-  background-color: #555;
+  background-color: rgba(255,255,255,0.4);
   margin: 10px auto 0;
   transition: background-color 0.3s ease;
 }
 
-/* واکنش‌گرا برای ویندوز و موبایل */
+/* Desktop layout */
 @media (min-width: 768px) {
   .gallery-container {
     display: flex;
@@ -136,9 +142,15 @@ body {
 
   .image-button-container {
     flex: 1 1 calc(50% - 80px);
+    max-width: 400px;
+  }
+
+  .image-button img {
+    max-width: 400px;
   }
 }
 
+/* Mobile layout - images fill 80% width with 10% margin left and right */
 @media (max-width: 767px) {
   .gallery-container {
     display: flex;
@@ -147,6 +159,13 @@ body {
   }
 
   .image-button-container {
+    max-width: 80vw; /* 80% of viewport width */
+    width: 80vw; /* force width 80% */
+    margin: 20px 10vw; /* 10% margin left and right */
+  }
+
+  .image-button img {
+    max-width: 100%;
     width: 100%;
   }
 }

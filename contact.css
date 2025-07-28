@@ -14,24 +14,30 @@
 /* Body Styling */
 body {
     font-family: 'Century Gothic', sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
+    /* Removed background-color to show background image */
+    background-image: url('SPACEBG1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
     display: flex;
     justify-content: center; /* Horizontally centers the content */
-    align-items: center; /* Vertically centers the content */
-    min-height: 100vh; /* Ensures the content takes up the full viewport height */
+    align-items: center;     /* Vertically centers the content */
+    min-height: 100vh;       /* Ensures the content takes up the full viewport height */
     text-align: center;
-    padding-top: 60px; /* Keeps space for the fixed nav */
+    padding-top: 60px;       /* Keeps space for the fixed nav */
 }
 
-/* Navigation Bar */
+/* Navigation Bar with dark blue background and white text */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: #fff;
+    background: #003366; /* dark blue */
     padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Keep nav on top */
 }
 
 nav ul {
@@ -43,27 +49,28 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color: white;          /* white text */
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 nav a:hover,
 nav .active {
-    color: #007bff;
+    color: #66b3ff;        /* lighter blue on hover/active */
 }
 
 /* Contact Container */
 .contact-container {
     max-width: 600px;
     padding: 20px;
-    background: white;
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency for better blending */
     border-radius: 25px; /* More rounded edges */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 0 auto; /* Centers the container */
     text-align: left; /* Align text to the left for better readability */
 }
 
+/* Headings and Paragraphs */
 .contact-container h1 {
     font-size: 30px;
     margin-bottom: 15px;
