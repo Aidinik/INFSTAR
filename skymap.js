@@ -61,3 +61,8 @@ nightModeToggle.addEventListener("click", () => {
     }
     isNightMode = !isNightMode;
 });
+window.addEventListener("load", () => {
+  const map = document.getElementById("map");
+  map.style.opacity = "1";
+  map.style.transform = "scale(1)";
+});
