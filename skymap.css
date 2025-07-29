@@ -73,12 +73,7 @@ body, html {
     /* No info image for desktop either */
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden; /* prevent page scroll */
-}
+
 
 .map-container {
   width: 100vw;
