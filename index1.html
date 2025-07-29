@@ -134,7 +134,7 @@
   <div class="button-row">
   <a href="index.html" class="btn custom-btn">خانه</a>
   <button id="langToggle" class="btn">فارسی</button>
-  <button id="modeToggle" class="btn">Night</button>
+  <button id="modeToggle" class="btn">شب</button>
 </div>
 
   <div class="search-bar">
@@ -899,7 +899,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   modeToggle.addEventListener("click", () => {
     isNight = !isNight;
-    modeToggle.textContent = isNight ? "Day" : "Night";
+    modeToggle.textContent = isNight ? "روز" : "شب";
 
     images.forEach(img => {
       // Get the file name from src (e.g., Leo_constellation_map.png)

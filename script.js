@@ -7,7 +7,7 @@
 
     modeToggle.addEventListener("click", () => {
       isNight = !isNight;
-      modeToggle.textContent = isNight ? "Day" : "Night";
+      modeToggle.textContent = isNight ? "روز" : "شب";
 
       images.forEach(img => {
         const alt = img.alt.trim(); // Constellation name from alt
