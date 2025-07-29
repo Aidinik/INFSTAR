@@ -12,20 +12,15 @@ body, html {
 }
 
 /* Navigation Bar */
-.nav {
+.navbar {
     position: fixed;
-    top: 0;
-    width: 100%;
-    background: #fff;
-    padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-.nav .ul {
-    list-style: none;
+    top: 10px;
+    right: 10px;
+    z-index: 20;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    gap: 10px;
 }
+
 .navbar button {
     padding: 10px 15px;
     font-size: 16px;
@@ -73,25 +68,6 @@ body, html {
     /* No info image for desktop either */
 }
 
-
-
-.map-container {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Scale image to fit inside container entirely */
-#map {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;  /* Important: show entire image */
-  
-  opacity: 0;
-  transform: scale(0.95);
-  transition: transform 0.8s ease, opacity 0.8s ease;
-  cursor: grab;
+body {
+    overflow-x: hidden;
 }
