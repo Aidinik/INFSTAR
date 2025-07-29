@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>صفحه بازی فضایی</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Tahoma', sans-serif;
+      background: #121212;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #2196f3; /* آبی */
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      max-width: 400px;
+    }
+    .rotate-msg {
+      font-size: 0.9rem;
+      margin-top: 10px;
+      color: #90caf9;
+      font-style: italic;
+    }
+    .buttons {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+    }
+    .btn {
+      background-color: #2196f3;
+      color: white;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn:hover {
+      background-color: #1976d2;
+      box-shadow: 0 8px 20px rgba(25, 118, 210, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <h1>شما قراره یه بازی انجام بدید</h1>
+  <p>تا آدم‌های فضایی رو شکست بدید!</p>
+  <p class="rotate-msg">برای جذابیت بیشتر، لطفاً صفحه را بچرخانید و افقی دست بگیرید.</p>
+
+  <div class="buttons">
+   
+    <a href="index.html" class="btn" target="_blank" rel="noopener noreferrer">بازگشت</a>
+    <a href="https://aidinik.github.io/INFSTAR-GAME/" class="btn" target="_blank" rel="noopener noreferrer">برو بریم</a>
+  </div>
+</body>
+</html>
